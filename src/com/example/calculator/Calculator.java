@@ -15,8 +15,27 @@ public class Calculator { // 클래스 선언 : "Calculator" 라는 틀 만들�
         System.out.println("입력한 숫자 : " + num1 + "," + num2);
 
         // 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
-        System.out.print("연산기호(+,=,*,/)를 입력하세요: ");
+        System.out.print("연산기호(+,-,*,/)를 입력하세요: ");
         char operator = sc.next().charAt(0);//문자열받기, 문자열에서 0번째 문자만 추출
         System.out.println("연산기호: " + operator);
+
+        int result = 0;
+        if (operator == '+') {
+            result = num1 + num2;
+        } else if (operator == '-') {
+            result = num1 - num2;
+        } else if (operator == '*') {
+            result = num1 * num2;
+        } else if (operator == '/') {
+            if (num2 == 0) {
+                System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                return;
+            }
+            result = num1 / num2;
+        } else {
+            System.out.println("연산기호를 올바르게 입력하세요.");
+            return;
+        }
+        System.out.println("결과: " + num1 +""+ operator +"" + num2 + "=" + result);
     }
 }
